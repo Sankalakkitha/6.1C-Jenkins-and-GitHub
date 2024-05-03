@@ -56,7 +56,7 @@ pipeline{
             }
 
         }
-        stage("Test 1"){
+        stage("Test case"){
             steps{
                 echo "Testing....."
             }
