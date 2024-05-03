@@ -56,6 +56,11 @@ pipeline{
             }
 
         }
+        stage("Test 1"){
+            steps{
+                echo "Testing....."
+            }
+        }           
             
                
     }
