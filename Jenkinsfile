@@ -51,7 +51,6 @@ pipeline{
                 success{
                     mail to:"sanka.mapalagama@gmail.com",
                     subject:"Continuous Integration and Deployment with Jenkins and GitHub",
-                    attachLog: true,
                     body:"Developers Please check build status and deployment events"
                 }
             }
