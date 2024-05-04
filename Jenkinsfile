@@ -49,7 +49,6 @@ pipeline{
             }
             post{
                 success{
-                    
                     subject:"Continuous Integration and Deployment with Jenkins and GitHub",
                     attachLog: true,
                     to: "sanka.mapalagama@gmail.com",
