@@ -52,7 +52,7 @@ pipeline{
                     mail to:"sanka.mapalagama@gmail.com",
                     subject:"Continuous Integration and Deployment with Jenkins and GitHub",
                     body:"Developers Please check build status and deployment events"
-                    attachmentsPattern: 'build.log',
+                    attachmentsPattern: 'build.log'
                 }
             }
 
