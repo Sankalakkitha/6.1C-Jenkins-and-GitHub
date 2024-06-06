@@ -47,20 +47,36 @@ pipeline{
                 // //AWS CLI            
                 echo"Deploy the code to the production  environment "
             }
-            post{
-                success{
-                    mail to:"sanka.mapalagama@gmail.com",
-                    subject:"Continuous Integration and Deployment with Jenkins and GitHub",
-                    body:"Developers Please check build status and deployment events"
-                }
+        post {
+            always {
+            script {
+                currentBuild.result = currentBuild.result ?: 'SUCCESS'
             }
+            emailext(
+                to: 'sanka.mapalagama@gmail.com',
+                subject: "Jenkins Pipeline - ${currentBuild.fullDisplayName} - ${currentBuild.result}",
+                body: """
+                    <p>Build Result: ${currentBuild.result}</p>
+                    <p>Build URL: <a href="${env.BUILD_URL}">${env.BUILD_URL}</a></p>
+                """,
+                attachLog:true,
+                mimeType: 'text/html'
+            )
+        }
+        success {
+            echo 'Build was successful!'
+        }
+        failure {
+            echo 'Build failed!'
+        }
+    }
 
         }
-        stage("Test case"){
+        /*stage("Test 1"){
             steps{
                 echo "Testing....."
             }
-        }           
+        }*/      
             
                
     }
